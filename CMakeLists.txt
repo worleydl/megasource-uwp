@@ -3,7 +3,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 	message(FATAL_ERROR "Prevented in-tree build.")
 endif()
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.15)
 
 include(ExternalProject)
 
@@ -23,6 +23,8 @@ endif()
 
 if(MSVC)
 	set(CMAKE_SUPPRESS_REGENERATION TRUE)
+	# UWP requires desktop /MT dlls or linkage against winrt runtime for /MD
+	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
 if(MSVC)
