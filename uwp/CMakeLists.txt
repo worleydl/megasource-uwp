@@ -36,7 +36,7 @@ set(BinDeps
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/SDL2.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/z-1.dll
 
-	${LOVE_DIR}/love/${BUILD_TYPE}/liblove.dll
+	${LOVE_DIR}/love/${BUILD_TYPE}/love.dll
 	${LOVE_DIR}/love/${BUILD_TYPE}/lua51.dll
 	${LOVE_DIR}/love/${BUILD_TYPE}/mpg123.dll
 	#${LOVE_DIR}/love/${BUILD_TYPE}/OpenAL32.dll # build config doesn't work
@@ -99,7 +99,7 @@ set(BinLibs
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/lib/SDL2.lib
 
 	${LOVE_DIR}/bin/lua51.lib
-	${LOVE_DIR}/love/${BUILD_TYPE}/libliblove.lib
+	${LOVE_DIR}/love/${BUILD_TYPE}/liblove.lib
 	${LOVE_DIR}/love/${BUILD_TYPE}/lovestatic.lib
 
 	WindowsApp.lib
