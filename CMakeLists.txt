@@ -3,7 +3,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 	message(FATAL_ERROR "Prevented in-tree build.")
 endif()
 
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.15)
 
 include(ExternalProject)
 
@@ -54,6 +54,10 @@ if(MSVC)
 	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MP")
 	message(STATUS "CMAKE_CXX_FLAGS_RELEASE: ${CMAKE_CXX_FLAGS_RELEASE}")
 	message(STATUS "CMAKE_C_FLAGS_RELEASE: ${CMAKE_C_FLAGS_RELEASE}")
+
+	# UWP requires desktop /MT dlls or linkage against winrt runtime for /MD
+	# We're opting for the /MT dll to minimize any code changes required
+	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
 function(add_move_dll ARG_POST_TARGET ARG_TARGET)
