@@ -27,18 +27,17 @@ add_executable(${PROJECT_NAME} WIN32
 )
 
 set(BinDeps
-	# libuwp/mesa/openal/sdl
+	# libuwp/mesa/sdl
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/dxil.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/libgallium_wgl.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/libuwp.dll
-	#${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/OpenAL32.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/opengl32.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/SDL3.dll
 	${CMAKE_CURRENT_BINARY_DIR}/_deps/uwplibs-src/x64/bin/z-1.dll
 
 	${LOVE_DIR}/love/${BUILD_TYPE}/liblove.dll
 	${LOVE_DIR}/love/${BUILD_TYPE}/lua51.dll
-	${LOVE_DIR}/love/${BUILD_TYPE}/OpenAL32.dll # build config doesn't work
+	${LOVE_DIR}/love/${BUILD_TYPE}/OpenAL32.dll
 
 	Package.appxmanifest
 )
